@@ -3,49 +3,94 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-	<link rel="stylesheet" href="style.css">
 	<title>Marita-Muheim</title>
+	
+	<!-- Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet'>
+	<!-- jQuary CDN -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<header></header>
-	<main></main>
+	<header class="header-border">
+		<div class="header-content">
+			<div class="header-description">
+				<h1>Marita Muheim</h1>
+				<h2>Therapie & Training bei Dyskalkulie</h2>
+			</div>
 
+			<button class="header-button">Beratung vereinbaren</button>
+		</div>
+	</header>
 
+	<!-- Menu Icon -->
+	<div class="menu-icon">&#9776;</div>
 
-	<section>
+	<!-- Sidebar -->
+	<div class="sidebar">
+		<button class="tablink" data-page="Home" id="defaultOpen"><p class="buttoncontent">Was ist Dyskalkulie?</p></button>
+		<button class="tablink" data-page="News"><p class="buttoncontent">Was ist für Eltern hilfreich zu wissen?</p></button>
+		<button class="tablink" data-page="Contact"><p class="buttoncontent">Welche Therapiemöglichkeiten gibt es?</p></button>
+		<button class="tablink" data-page="About"><p class="buttoncontent">Über mich</p></button>
+		<button class="tablink" data-page="Last"><p class="buttoncontent">Für Schulen</p></button>
+	</div>
 
-		<h1>
-			Animated transition tabs<br>
-			with checkboxes
-		</h1>
+	<!-- Overlay -->
+	<div id="overlay" class="overlay"></div>
 
+	<main>
 		<div class="tabs">
-		<div class="tab-2">
-			<label for="tab2-1">One</label>
-			<input id="tab2-1" name="tabs-two" type="radio" checked="checked">
-			<div>
-			<h4>Tab One</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat id velit quis vestibulum. Nam id orci eu urna mollis porttitor. Nunc nisi ante, gravida at velit eu, aliquet sodales dui. Sed laoreet condimentum nisi a egestas. <a class="documentation" href="https://flkt.mx/pitaya/componentes.html#pestanias">Documentación en español</a>.</p><p>Donec interdum ante ut enim consequat, quis varius nulla dapibus. Vivamus mollis fermentum augue a varius. Vestibulum in sapien at lectus gravida lobortis vulputate sed metus. Duis scelerisque justo et maximus efficitur. Donec eu eleifend quam. Curabitur aliquet commodo sapien eget vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum vel aliquet nunc, finibus posuere lorem. Suspendisse consectetur volutpat est ut ornare.</p>
+			<!-- Your existing tab content -->
+			<div id="Home" class="tabcontent">
+				<div style="width: 1312px; height: 680px; background-color: aliceblue; position: relative;">
+					<h3>Home</h3>
+					<p>Home is where the heart is..</p>
+					<svg width="1312" height="680" viewBox="0 0 1312 680" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 0; left: 0; z-index: 100;">
+						<!-- Number 5 in the top-left corner -->
+						<text x="50" y="100" font-size="140" font-family="Caveat" font-weight="bolder" transform="rotate(-30 50,100)">5</text>
+				
+						<!-- Number 4 in the top-left corner (dotted pattern) -->
+						<pattern id="dots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+							<circle cx="2" cy="2" r="1" fill="black" />
+						</pattern>
+						<text x="200" y="250" font-size="140" font-family="Caveat" font-weight="bolder" fill="url(#dots)" transform="rotate(-30 200,250)">4</text>
+						
+						<!-- Number 9 in the bottom-right corner -->
+						<text x="1100" y="600" font-size="140" font-family="Caveat" font-weight="bolder" transform="rotate(20 1100,600)">9</text>
+						
+						<!-- Number 2 in the bottom-left corner (dotted pattern) -->
+						<text x="100" y="600" font-size="140" font-family="Caveat" font-weight="bolder" fill="url(#dots)" transform="rotate(-15 100,600)">2</text>
+						
+						<!-- Number 0 in the bottom-left corner -->
+						<text x="900" y="600" font-size="140" font-family="Caveat" font-weight="bolder" transform="rotate(-30 900,600)">0</text>
+					</svg>
+				</div>
+			</div>
+
+			<div id="News" class="tabcontent">
+				<h3>News</h3>
+				<p>Some news this fine day!</p> 
+			</div>
+
+			<div id="Contact" class="tabcontent">
+				<h3>Contact</h3>
+				<p>Get in touch, or swing by for a cup of coffee.</p>
+			</div>
+
+			<div id="About" class="tabcontent">
+				<h3>About</h3>
+				<p>Who we are and what we do.</p>
+			</div>
+
+			<div id="Last" class="tabcontent">
+				<h3>Last</h3>
+				<p>Who we are and what we do.</p>
 			</div>
 		</div>
-		<div class="tab-2">
-			<label for="tab2-2">Two</label>
-			<input id="tab2-2" name="tabs-two" type="radio">
-			<div>
-			<h4>Tab Two</h4>
-			<p>Quisque sit amet turpis leo. Maecenas sed dolor mi. Pellentesque varius elit in neque ornare commodo ac non tellus. Mauris id iaculis quam. Donec eu felis quam. Morbi tristique lorem eget iaculis consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean at tellus eget risus tempus ultrices. Nam condimentum nisi enim, scelerisque faucibus lectus sodales at.</p>
-			</div>
-		</div>
-		</div>
-		
-	</section>
+	</main>
 
-	<script>
-
-	</script>
 	<script src="js/main.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+   
 </body>
-</html>
+</html> 
