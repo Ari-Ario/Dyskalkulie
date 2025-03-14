@@ -36,34 +36,49 @@
 		* Preview Edit page funcs
 		======================*/
 
-		// Function to open a tab
-		function openPage(pageName, el) {
-			$(".tabcontent").hide(); // Hide all tab content
-			$(".buttoncontent").css("border-bottom", ""); // Remove border from all tab links
-			$("#" + pageName).show(); // Show the selected tab content
-			$(el).find(".buttoncontent").css("border-bottom", "2px solid #fd264f");
-
-			// Save the clicked button's ID to localStorage
-			localStorage.setItem("lastClickedTab", pageName);
-		}
+		$(document).ready(function() {
+			// Function to open a tab
+			function openPage(pageName, el) {
+				// Hide the #Home tab (defaultOpen) first
+				$("#Home").hide().removeClass("active");
+			
+				// Hide all tab content
+				$(".tabcontent").hide().removeClass("active");
+			
+				// Remove border from all tab links
+				$(".buttoncontent").css("border-bottom", "");
+			
+				// Show the selected tab content
+				$("#" + pageName).show().addClass("active");
+			
+				// Add border to the clicked tab link
+				$(el).find(".buttoncontent").css("border-bottom", "2px solid #fd264f");
+			
+				// Save the clicked button's ID to localStorage
+				localStorage.setItem("lastClickedTab", pageName);
+			}
 		
-		// Event listener for tab links
-		$(".tablink").click(function() {
-			var pageName = $(this).data("page");
-			openPage(pageName, this);
-			$(".sidebar").removeClass("active");
-			$(".overlay").removeClass("active");
+			// Event listener for tab links
+			$(".tablink").click(function() {
+				var pageName = $(this).data("page");
+				openPage(pageName, this);
+		
+				// Close the sidebar (if open)
+				$(".sidebar").removeClass("active");
+				$(".overlay").removeClass("active");
+			});
+		
+			// Retrieve the last clicked tab from localStorage
+			var lastClickedTab = localStorage.getItem("lastClickedTab");
+		
+			// If a last clicked tab is found, open it; otherwise, open the default tab
+			if (lastClickedTab) {
+				openPage(lastClickedTab, $(".tablink[data-page='" + lastClickedTab + "']"));
+			} else {
+				// Open the default tab
+				$("#defaultOpen").click();
+			}
 		});
-	
-		// Retrieve the last clicked tab from localStorage
-		var lastClickedTab = localStorage.getItem("lastClickedTab");
-	
-		// If a last clicked tab is found, open it; otherwise, open the default tab
-		if (lastClickedTab) {
-			openPage(lastClickedTab, $(".tablink[data-page='" + lastClickedTab + "']"));
-		} else {
-			$("#defaultOpen").click(); // Open the default tab
-		}
 	
 	/*====================
 		Preloader JS

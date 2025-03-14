@@ -25,9 +25,9 @@ body {
 	font-size: 20px;
 	font-weight: 400;
 	letter-spacing: 0.01em;
-	line-height: 1.6em;
+	/* line-height: 1.6em; */
 	margin: 0;
-
+	padding: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -43,14 +43,28 @@ main {
 /*=============================
 	Header CSS 
 ===============================*/
+.header {
+	width: 100%;
+	background-color: #F1EFE5 !important;
+	position: sticky;
+	top: 0px;
+	z-index: 10;
+}
+
 .header-border {
-	margin: 20px auto;
-	width: 1312px;
+	padding: 20px;
 	max-height: 108px;
 	background-color: #f1efe500;
+	position: sticky;
+	top:  20px;
+	z-index: 10;
+	background-color: #F1EFE5;
+	display: flex;
+	justify-content: center;
 }
 
 .header-content {
+	width: 1312px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -73,8 +87,7 @@ main {
 	font-family: 'Caveat';
 }
 
-.header-button {
-	background-color: #52BA69; 
+.button-standard {
 	color: white;
 	border: none;
 	padding: 0px 20px;
@@ -86,13 +99,20 @@ main {
 	cursor: pointer;
 	border-radius: 30px;
 }
+.button-primary {
+	background-color: #52BA69; 
+}
 
-
+.button-secondary {
+	background-color: #EE5731; 
+}
 /*=============================
 	Sub-Header CSS 
 ===============================*/
 .menu-icon {
 	display: none;
+	background-color: #F1EFE5;
+	padding: 2px;
 }
 .sidebar,
 .tabs {
@@ -101,6 +121,9 @@ main {
 	text-align: left;
 	width: 1312px;
 
+}
+.tabs {
+	margin-top: 20px;
 }
 
 /* Style tab links */
@@ -167,12 +190,211 @@ transition: all 0.3s ease-in-out;
 .tabcontent {
   color: black;
   display: none;
-  padding: 20px 0px;
 }
+
+/* Show the active tab content */
+.tabcontent.active {
+	display: block;
+}
+/* Standard container styling */
+.standardcontainer {
+	display: block;
+	justify-content: center;
+	align-items: center;
+}
+
+/*=============================
+	Containers CSS 
+===============================*/
+/* .tabcontent {
+	width: 1312px; 
+	height: 680px; 
+	background-color: white; 
+	position: relative;
+} */
+
+.content-containers{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	position: relative;
+	margin-bottom: 80px !important;
+	padding: 20px;
+	width: 1312px; 
+	height: 680px; 
+	box-sizing: border-box;
+	width: 100%;
+}
+
+/* Left container styling */
+.description-container {
+	width: 40%;
+}
+
+.description-container h1,
+.detail-container h1 {
+	font-size: 45px;
+	font-weight: 700;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+/* Right container styling */
+.detail-container {
+	width: 30%;
+}
+
+.detail-container p {
+	font-size: 18px;
+}
+
+/* Photo container styling */
+.owner-container {
+	position: absolute;
+	top: 90%;
+	left: 40%;
+	transform: translate(-50%, -50%);
+	width: 230px;
+	height: 230px;
+	border-radius: 50%;
+	overflow: hidden;
+	z-index: 9;
+}
+
+.circle-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.photo-container {
+	max-width: 412px;
+}
+.white-container {
+	background-color: white !important;
+	border-radius: 20px !important;
+}
+/* Numbers styling */
+.numbers {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none; /* Ensure numbers don't interfere with clicks */
+}
+
+.number {
+	position: absolute;
+	font-size: 140px;
+	z-index: 8;
+}
+
+/* Number positions */
+.number-5 {
+	top: -2%;
+	left: -2%;
+	/* transform: rotate(-30deg); */
+}
+
+.number-4 {
+	top: 5%;
+	left: 4%;
+}
+.number-9 {
+	top: 40%;
+	right: 4%;
+}
+
+.number-2 {
+	top: 65%;
+	right: 12%;
+}
+
+.number-0 {
+	top: 80%;
+	right: 25%;
+}
+
+.curves {
+	position: absolute;
+	top: 110%;
+	left: 45%;
+	transform: translate(-50%, -50%);
+	width: auto;
+	height: auto;
+	border-radius: 50%;
+	/* overflow: hidden; */
+	z-index: 2;
+}
+
+/* Cards Container styling */
+.cards-container {
+	display: flex;
+	justify-content: space-between; /* Space cards evenly */
+	gap: 0 20px;
+	padding: 20px;
+	max-width: 1312px;
+	margin: 0 auto;
+}
+
+/* Card Styling */
+.card {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 20px;
+	/* max-width: 416px; */
+	padding: 30px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	flex: 1 1 calc(33.333% - 20px);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card Content */
+.card h2 {
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.card h3 {
+	font-size: 20px;
+	color: #555;
+	margin-bottom: 15px;
+}
+
+.card p {
+	font-size: 16px;
+	color: #666;
+	line-height: 1.6;
+}
+
+/* Cards' Responsive Design */
+@media screen and (max-width: 768px) {
+	.cards-container {
+		flex-direction: column;
+		gap: 20px; 
+	}
+
+	.card {
+		flex: 1 1 100%;
+		padding: 20px;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.card {
+		flex: 1 1 calc(50% - 20px);
+	}
+}
+/* End Cards' Responsive Design */
+
 
 
 /*=============================
-	Global CSS 
+	Responsive CSS 
 ===============================*/
 
 @media screen and (max-width: 1180px)  {
@@ -187,13 +409,16 @@ transition: all 0.3s ease-in-out;
 		width: 96%;
 		max-width: 100%;
 		justify-content: space-around !important;
-		/* margin: 20px; */
 	}
 	
-	main, .sidebar,
-	.tabs {
+	main, .sidebar {
 		width: 100%;
 		max-width: 96%;
+		text-align: center;
+	}
+	.tabs {
+		width: 100%;
+		text-align: center;
 	}
 	.tablink {
 		background-color: #55555500;
@@ -218,33 +443,44 @@ transition: all 0.3s ease-in-out;
 		  float: right;
 		  width: 12%;
 	  }
+	.tabcontent {
+		max-width: 100%;
+		height: auto;
+		align-items: center;
+		margin-top: 20px;
+	}
+
+	.description-container {
+		width: 45%;
+	}
+	.description-container h1 {
+		font-size: 38px;
+	}
+	.detail-container {
+		width: 40%;
+		font-size: 20px;
+		text-align: left;
+	}
+	.owner-container {
+		position: absolute;
+		top: 94%;
+		left: 45%;
+	}
+	.curves {
+		top: 110%;
+		left: 52%;
+	}
+	li {
+		text-align: left;
+	}
   }
-/* Overlay for the rest of the page */
-.overlay {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 998;
-}
-
-/* Show overlay when sidebar is active */
-.overlay.active {
-	display: block;
-}
-
 
 @media screen and (max-width: 820px) {
 	/* Hide the default tab links */
 	.tablink {
 		display: none;
 	}
-	.tabcontent {
-		padding: 0 20px;
-	}
+
 	.header-content {
 		padding-left: 60px !important;
 	}
@@ -252,16 +488,19 @@ transition: all 0.3s ease-in-out;
 	.menu-icon {
 		display: block;
 		position: fixed;
-		top: 30px;
+		top: 20px;
 		left: 10px; 
 		font-size: 50px;
 		font-weight: 600;
 		color: #000;
 		cursor: pointer;
-		z-index: 1000;
+		z-index: 10;
 		transition: left 0.3s ease-in-out; 
 	}
-
+	.header-border {
+		padding: 10px 0;
+		margin: 10px 0;
+	}
 	/* Sidebar styling */
 	.sidebar {
 		position: fixed;
@@ -270,7 +509,7 @@ transition: all 0.3s ease-in-out;
 		width: 400px;
 		height: 100%;
 		background-color: #F1EFE5;
-		z-index: 999;
+		z-index: 9;
 		transition: left 0.3s ease-in-out;
 		padding-top: 60px; /* Space for menu icon */
 	}
@@ -294,7 +533,7 @@ transition: all 0.3s ease-in-out;
 		width: 100%;
 		height: 100%;
 		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 998;
+		z-index: 8;
 	}
 
 	/* Show overlay when sidebar is active */
@@ -316,16 +555,67 @@ transition: all 0.3s ease-in-out;
 
 	.sidebar .tablink:nth-child(1),
 	.sidebar .tablink:nth-child(n+4) {
-		width: 100%; /* Reset widths for sidebar buttons */
+		width: 100%;
 		float: none;
 	}
-}
 
+	.standardconatainer {
+		display: block;
+	}
+	.content-containers{
+		margin-bottom: 200px !important;
+		height: 110%;
+		/* border: #52BA69 solid 1px; */
+	}
+	.description-container {
+		width: 100%;
+		font-size: 18px !important;
+		font-weight: 400;
+	}
+	.description-container h1 {
+		font-size: 32px;
+		font-weight: 700;
+	}
+	.detail-container {
+		width: 100%;
+		font-size: 20px;
+	}
+	.owner-container {
+		top: 116%;
+		left: 52%;
+	}
+	.curves {
+		top: 110%;
+		left: 60%;
+	}
+	.curve1 {
+		top: 140% !important;
+	}
+	.curve2 {
+		top: 110% !important;
+		left: 50% !important;
+	}
+	.curve3 {
+		top: 110% !important;
+		left: 60% !important;
+	}
+	.number {
+		z-index: 0;
+	}
+	.number-5 {
+		top: -20%;
+		left: -4%;
+	}
+	
+	.number-4 {
+		top: -20%;
+		left: 10%;
+	}
+}
 
 @media screen and (max-width: 500px) {
 
 	body {
-		line-height: 0;
 		margin: 0;
 		padding: 2%; 
 	}
@@ -347,7 +637,6 @@ transition: all 0.3s ease-in-out;
 	.header-content h1 {
 		font-size: 20px;
 		font-weight: 400;
-		margin-bottom: 20px;
 	}
 
 	.header-content h2 {
@@ -355,7 +644,7 @@ transition: all 0.3s ease-in-out;
 		font-size: 15px;
 	}
 
-	.header-button {
+	.button-header {
 		padding: 5px 10px;
 		max-height: 40px;
 		height: 28px;
@@ -364,10 +653,7 @@ transition: all 0.3s ease-in-out;
 		font-weight: 700;
 	}
 	.menu-icon {
-		top: 30px;
-		left: 10px; 
-		font-size: 28px;
-
+		font-size: 32px;
 	}
 	.tablink {
 		float: none;
@@ -384,17 +670,51 @@ transition: all 0.3s ease-in-out;
 		width: 300px;
 		height: 100%;
 		background-color: #F1EFE5;
-		z-index: 999;
+		z-index: 9;
 
+	}	
+	.owner-container {
+		top: auto;
+		bottom: -16%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		overflow: hidden;
+		z-index: 9;
+	}
+	.content-containers{
+		margin-bottom: 100px !important;
+	}
+	.curves {
+		display: none;
+		top: 115%;
+		left: 50%;
+	}
+	.number-5 {
+		top: -14%;
+		left: -2%;
+	}
+	
+	.number-4 {
+		top: -14%;
+		left: 30%;
+	}
+	.number-9 {
+		top: 40%;
+		right: -4%;	
+	}
+	.number-2 {
+		top: 65%;
+		right: 0%;
+	}
+	
+	.number-0 {
+		top: 84%;
+		right: 25%;
 	}
   }
-
-
-
-
-  
-
-
 
 
 
